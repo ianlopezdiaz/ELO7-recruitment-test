@@ -26,17 +26,16 @@ def recommendation(user_query):
 
 if __name__ == '__main__':
     if len(sys.argv) == 3:
-        if sys.argv[1] in ('--category', '--intent', '--recommendation'):
-            if sys.argv[1] == '--category':
-                features_dict = eval(sys.argv[2])
-                if type(features_dict) == dict:
-                    print(category(features_dict))
-                else:
-                    print_help()
-            elif sys.argv[1] == '--intent':
-                print(intent(sys.argv[2]))
+        if sys.argv[1] == '--category':
+            features_dict = eval(sys.argv[2])
+            if type(features_dict) == dict:
+                print(category(features_dict))
             else:
-                print(recommendation(sys.argv[2]))
+                    print_help()
+        elif sys.argv[1] == '--intent':
+            print(intent(sys.argv[2]))
+        elif sys.argv[1] == '--recommendation':
+            print(recommendation(sys.argv[2]))
         else:
             print_help()
     else:
